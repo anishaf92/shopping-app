@@ -12,6 +12,7 @@ const ProductDetails = () => {
   const [refresh, setRefresh] = useState (false);
   const [cartData, setCartData] = useState ([]);
   const navigate = useNavigate ();
+  const api = process.env.REACT_APP_API_URL;
   useEffect (
     () => {
       fetchProductDetails ();
@@ -23,7 +24,7 @@ const ProductDetails = () => {
   const fetchProductDetails = async () => {
     try {
       const response = await fetch (
-        `http://localhost:3001/product/getProductById/${id}`,
+        `${api}/product/getProductById/${id}`,
         {
           method: 'GET',
           headers: {
@@ -46,7 +47,7 @@ const ProductDetails = () => {
   const fetchCartData = async () => {
     try {
       const response = await fetch (
-        'http://localhost:3001/cart/getCartProducts',
+        `${api}/cart/getCartProducts`,
         {
           method: 'GET',
           mode: 'cors',
@@ -65,6 +66,7 @@ const ProductDetails = () => {
   };
   useEffect (() => {
     fetchCartData ();
+    //eslint-disable-next-line
   }, []);
   useEffect (
     () => {
@@ -79,7 +81,7 @@ const ProductDetails = () => {
   );
 
   const addToCart = async id => {
-    await fetch (`http://localhost:3001/cart/addToCart`, {
+    await fetch (`${api}/cart/addToCart`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -92,7 +94,7 @@ const ProductDetails = () => {
     setToggleButton (true);
   };
   const removeFromCart = async id => {
-    await fetch (`http://localhost:3001/cart/removeFromCart`, {
+    await fetch (`${api}/cart/removeFromCart`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

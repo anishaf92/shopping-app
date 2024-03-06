@@ -10,6 +10,7 @@ const Category = () => {
   const [productData, setProductData] = useState ([]);
   const [refresh, setRefresh] = useState (false);
   const {occasion} = useParams ();
+  const api = process.env.REACT_APP_API_URL;
   const cardsPerPage = 3;
 
   // State to manage the current page
@@ -41,7 +42,7 @@ const Category = () => {
     setLoading (true);
     try {
       const response = await fetch (
-        `http://localhost:3001/occasion/${occasion}`,
+        `${api}/occasion/${occasion}`,
         {
           method: 'GET',
           mode: 'cors',

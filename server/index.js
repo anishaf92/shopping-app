@@ -18,7 +18,7 @@ const corsOptions = {
   methods: ['GET', 'POST','PATCH','DELETE'],
 };
 
-const PORT  =  3001;
+const PORT  =  process.env.PORT;
 app.use(cors(corsOptions));
 
 app.use (express.urlencoded ({extended: true}));

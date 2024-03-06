@@ -1,0 +1,38 @@
+.box {
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    gap:15px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+    margin-top: 8rem;
+  }
+  
+  input {
+    border-color: black;
+    border-radius: 10px;
+    width: 320px;
+    height: 30px;
+  }
+  
+  label {
+    margin-top: 1rem;
+    margin-bottom: 1rem; /* Adjusted margin value */
+    margin-right: -7rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .invisible__btn {
+    border: none;
+    background: none;
+    font-size: 1.6rem;
+  }
+  
+  @media only screen and (max-width: 900px) {
+    input {
+      width: 200px;
+    }
+  }
+  

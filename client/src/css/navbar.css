@@ -1,0 +1,138 @@
+@import url(https://db.onlinewebfonts.com/c/5c1d1152315e32aec86eb4ed0b05977b?family=La+Fa+Salt);
+
+.navbar {
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: "La Fa Salt";
+  font-weight: 700;
+  font-size: 2.5rem;
+  padding-top: 2rem;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.nav-elements {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  position: relative; /* Set relative positioning */
+}
+
+.nav-elements ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-elements ul li:not(:last-child) {
+  margin-right: 30px;
+}
+
+.nav-elements ul a {
+  font-size: 1.6rem;
+  font-weight:500;
+  color: #2f234f;
+  text-decoration: none;
+}
+
+.nav-elements ul a.active {
+  color: #574c4c; /* Text color for active item */
+  font-weight: bold; /* Bold text for active item */
+}
+ul.dropdown-content a.active {
+  color: #574c4c; /* Text color for active item */
+  font-weight: bold; /* Bold text for active item */
+}
+
+
+
+/* Add styles for the dropdown menu */
+.dropdown {
+  position: relative;
+}
+
+ul.dropdown-content {
+  display: none;
+ 
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  padding:15px;
+  gap:20px;
+  align-items:flex-start;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    color: black;
+  }
+
+  .nav-elements  {
+    display:none;
+    position: absolute;
+    justify-content: right;
+    padding: 10px;
+    top: 6rem;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+    height: 0;
+    transition: height 0.3s ease-in-out; /* Adjust the transition property */
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .nav-elements.active {
+    display: flex;
+    height: 70vw;
+   
+  }
+
+  .nav-elements ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .nav-elements ul li:last-child {
+    margin-right: 50px;
+  }
+
+  
+  .nav-elements ul li {
+    margin-right: unset;
+    margin-top: 22px;
+  }
+  ul.dropdown-content {
+   left:-120px;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+ 
+
+  h2 {
+    margin: 2rem;
+  }
+}

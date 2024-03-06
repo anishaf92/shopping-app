@@ -8,7 +8,6 @@ router.post("/addToCart", async (req, res) => {
 
   try {
     const cartItem = await Cart.create({ productId, quantity });
-    console.log(cartItem);
     res.send({ result: "Added to cart" });
   } catch (error) {
     console.error('Error adding to cart:', error);
@@ -53,8 +52,6 @@ router.get("/getCartProducts", async (req, res) => {
       productOccasion: item.productId.occasion,
       productImage: item.productId.image_url
     }));
-
-    console.log(products);
     res.send({ result: products });
   } catch (error) {
     console.error('Error retrieving cart items:', error);

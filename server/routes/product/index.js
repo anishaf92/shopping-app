@@ -5,7 +5,6 @@ router
   .get("/getProducts",async (req,res) => {
     await Product.find()
     .then(result => {
-      console.log(result);
       res.send({result})
     })
     .catch(error => {
@@ -19,9 +18,6 @@ router
     try {
         // Convert the search term to lowercase for case-insensitive comparison
         await Product.find({name: { $regex: searchTerm.toLowerCase() } }).then((result) => {
-
-        
-        console.log(result)
         res.json({ result: result });
         })
     } catch (error) {
@@ -31,7 +27,7 @@ router
 });
 router.get("/getProductById/:id", async (req, res) => {
     const id = req.params.id;
-    console.log("inside",id)
+    
     await Product.find({_id:id})
     .then(result => {
       console.log(result);

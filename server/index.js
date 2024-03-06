@@ -17,8 +17,8 @@ const corsOptions = {
   origin: '*',
   methods: ['GET', 'POST','PATCH','DELETE'],
 };
-
-const PORT  =  process.env.PORT;
+console.log(process.env.mongodbURL)
+const PORT  =  process.env.portNo;
 app.use(cors(corsOptions));
 
 app.use (express.urlencoded ({extended: true}));

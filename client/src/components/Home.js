@@ -10,7 +10,7 @@ const Home = () => {
   const [loading, setLoading] = useState (false);
   const [productData, setProductData] = useState ([]);
   const [refresh, setRefresh] = useState (false);
-  const api = process.env.REACT_APP_API_URL;
+ 
 
   const cardsPerPage = 3;
 
@@ -40,7 +40,7 @@ const Home = () => {
     // Call API or perform search logic with the search term
     try {
       const response = await fetch (
-        `${api}/product/getProductBySearch/${searchTerm}`,
+        `/api/product/getProductBySearch/${searchTerm}`,
         {
           method: 'GET',
           headers: {
@@ -73,7 +73,7 @@ const Home = () => {
 
     try {
       const response = await fetch (
-        `${api}/product/getProducts`,
+        `/api/product/getProducts`,
         {
           method: 'GET',
           mode: 'cors',

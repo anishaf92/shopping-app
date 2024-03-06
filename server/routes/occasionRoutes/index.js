@@ -1,6 +1,7 @@
-import { Router } from "express";
-import Product from "../../models/product.js";
-const router = Router();
+const express = require('express');
+const router = express.Router();
+const Product = require("../../models/product.js");
+
 router
   .get("/:occasion",async (req,res) => {
     const occasion = req.params;
@@ -12,4 +13,4 @@ router
         res.status(500).json({ error: 'Internal Server Error' });
       }
   })
-export default router;
+module.exports = router;

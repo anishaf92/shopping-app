@@ -9,7 +9,6 @@ import AddToCart from "./AddToCart";
 const ProductCard = ({productId,productName,productOccasion,productPrice,productImage,getRefresh}) => {
   const [toggleButton,setToggleButton] = useState(false)
   const [cartData, setCartData] = useState([])
-  const api = process.env.REACT_APP_API_URL;
    // eslint-disable-next-line
   const [loading,setLoading] = useState(false)
   const navigate = useNavigate()
@@ -18,7 +17,7 @@ const ProductCard = ({productId,productName,productOccasion,productPrice,product
     setLoading(true);
   
       try {
-        const response = await fetch(`${api}/cart/getCartProducts`, {
+        const response = await fetch(`/api/cart/getCartProducts`, {
           method: "GET",
           mode: "cors",
         });
@@ -50,7 +49,7 @@ const ProductCard = ({productId,productName,productOccasion,productPrice,product
    },[cartData,productId])
    
   const addToCart = async(id) => {
-    await fetch(`${api}/cart/addToCart`,{
+    await fetch(`/api/cart/addToCart`,{
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -65,7 +64,7 @@ const ProductCard = ({productId,productName,productOccasion,productPrice,product
     getRefresh()
   }
   const removeFromCart = async (id) => {
-    await fetch(`${api}/cart/removeFromCart`,{
+    await fetch(`/api/cart/removeFromCart`,{
       method: 'POST',
       headers: {
         'Accept': 'application/json',

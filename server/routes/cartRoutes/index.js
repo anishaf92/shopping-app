@@ -1,7 +1,7 @@
-import { Router } from "express";
-import Cart from "../../models/cart.js";
+const express = require('express');
+const router = express.Router();
+const Cart = require("../../models/cart.js");
 
-const router = Router();
 
 router.post("/addToCart", async (req, res) => {
   const { productId, quantity } = req.body;
@@ -60,5 +60,4 @@ router.get("/getCartProducts", async (req, res) => {
 });
 
 
-
-export default router;
+module.exports = router;

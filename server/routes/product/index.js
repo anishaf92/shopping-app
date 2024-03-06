@@ -1,6 +1,7 @@
-import { Router } from "express";
-import Product from "../../models/product.js";
-const router = Router();
+const express = require('express');
+const router = express.Router();
+const Product = require("../../models/product.js");
+
 router
   .get("/getProducts",async (req,res) => {
     await Product.find()
@@ -38,4 +39,4 @@ router.get("/getProductById/:id", async (req, res) => {
     });
 })
 
-export default router;
+module.exports = router;

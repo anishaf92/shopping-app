@@ -7,7 +7,6 @@ const Cart = () => {
   const [cartData, setCartData] = useState ([]);
   const [loading, setLoading] = useState (false);
   const [refresh, setRefresh] = useState (false);
-  const api = process.env.REACT_APP_API_URL;
   const navigate = useNavigate ();
 
   useEffect (
@@ -28,7 +27,7 @@ const Cart = () => {
 
     try {
       const response = await fetch (
-        `${api}/cart/getCartProducts`,
+        `/api/cart/getCartProducts`,
         {
           method: 'GET',
           mode: 'cors',
